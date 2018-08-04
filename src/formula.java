@@ -105,7 +105,6 @@ public ArrayList<Integer> encode()
 						{
 							s2 += input[j + n1];
 							n1++;
-							
 						}
 						if(n == n1 && s1.equals(s2))
 						{
@@ -200,27 +199,58 @@ public static String arrayToString(ArrayList<Integer> x)
 }
 
 
-	/** returns whether or not the specified formula is contained within this one */
+	/** returns whether or not the specified formula is contained within this one (only works for logic formulae currently) */
 
 	public boolean formulaContains(formula f)
 	{
-		String fNoNums = "";
-		String thisNoNums = "";
-		
-		for(int i = 0; i < this.getStringfromFormula().length(); i++)
-		{
-			if(Character.isDigit(this.getStringfromFormula().charAt(i))) {thisNoNums += this.getStringfromFormula().charAt(i);}
-		}
-		
-		for(int j = 0; j < f.getStringfromFormula().length(); j++)
-		{
-			if(Character.isDigit(f.getStringfromFormula().charAt(j))) {fNoNums += f.getStringfromFormula().charAt(j);}
-		}
-		
-		if(thisNoNums.contains(fNoNums))
-		{
-			return true;
-		}
+			for(int k = 0; k < this.encode().size() - f.encode().size();k++)
+			{
+				ArrayList<Integer> pForm = new ArrayList<Integer>();
+				for(int l = 0; l < f.encode().size(); l++)
+				{
+					pForm.add(this.encode().get(k+l));
+				}
+				
+				int loc = 0;
+				ArrayList<Integer> alreadyUsed = new ArrayList<Integer>();
+				int [] test = new int[pForm.size()];
+				
+				for(int m = 0; m < pForm.size(); m++)
+				{
+					
+					if((PrimeNumberGenerator.getRealPrimes().contains(pForm.get(m) - 1)) && (alreadyUsed.contains(pForm.get(m)) == false))
+					{
+						test[m] = PrimeNumberGenerator.getRealPrimes().get(loc) + 1;
+						
+						for(int n = 0; n < pForm.size(); n++)
+						{
+							if(pForm.get(n) == pForm.get(m)) {test[n] = PrimeNumberGenerator.getRealPrimes().get(loc) + 1;}
+						}
+						
+						loc++;
+						
+					}
+					
+					else
+					{
+						test[m] = pForm.get(m);
+					}
+				}
+				
+				
+			ArrayList<Integer> t = new ArrayList<Integer>();
+			for(int o = 0; o < test.length; o++)
+			{
+				t.add(test[o]);
+			}
+				
+			
+			if(t.equals(f.encode()))
+			{
+				return true;
+			}
+				
+			}
 		
 		return false;
 	}

@@ -18,8 +18,8 @@ public class runner
 			logic.beginLoop();
 		}).start(); */
 		
-		formula f = new formula("(A1→A2)");
-		formula g = new formula("((A3→A4)→(A4→A3))");
+		formula f = new logicFormula("(A2→A2)");
+		formula g = new logicFormula("((A7→A9)→(A4→A9))");
 		
 		System.out.println(g.formulaContains(f));
 	
