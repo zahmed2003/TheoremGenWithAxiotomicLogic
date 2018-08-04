@@ -202,9 +202,27 @@ public static String arrayToString(ArrayList<Integer> x)
 
 	/** returns whether or not the specified formula is contained within this one */
 
-	public boolean isContained(formula f)
+	public boolean formulaContains(formula f)
 	{
-	
+		String fNoNums = "";
+		String thisNoNums = "";
+		
+		for(int i = 0; i < this.getStringfromFormula().length(); i++)
+		{
+			if(Character.isDigit(this.getStringfromFormula().charAt(i))) {thisNoNums += this.getStringfromFormula().charAt(i);}
+		}
+		
+		for(int j = 0; j < f.getStringfromFormula().length(); j++)
+		{
+			if(Character.isDigit(f.getStringfromFormula().charAt(j))) {fNoNums += f.getStringfromFormula().charAt(j);}
+		}
+		
+		if(thisNoNums.contains(fNoNums))
+		{
+			return true;
+		}
+		
+		return false;
 	}
 	
 	/** returns an array list of a specific number of elements contained within the encoded number*/

@@ -5,12 +5,12 @@ public class runner
 	public static void main(String[] args) 
 	{
 		new Thread(() -> {
-			variables.addElements();
+			
+			PrimeNumberGenerator.generatePrimes();
 		}).start();
 		
 		new Thread(() -> {
-	
-			PrimeNumberGenerator.generatePrimes();
+			variables.addElements();
 		}).start();
 		
 		/* new Thread(() -> {
@@ -19,7 +19,9 @@ public class runner
 		}).start(); */
 		
 		formula f = new formula("(A1→A2)");
-		formula g = new formula("((A1→A2)→(A2→A1))");
+		formula g = new formula("((A3→A4)→(A4→A3))");
+		
+		System.out.println(g.formulaContains(f));
 	
 	
 	

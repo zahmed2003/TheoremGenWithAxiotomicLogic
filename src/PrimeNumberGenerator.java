@@ -50,7 +50,7 @@ public static void generatePrimes()
 	while(true)
 	{
 		realPrimes = primeGenerator(n);
-		n+= (n*2);
+		n = (n*2);
 	}
 }
 

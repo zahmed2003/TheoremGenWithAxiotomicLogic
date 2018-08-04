@@ -7,13 +7,13 @@ public class generalization extends inferenceRule
 			int loc = 0;
 			for(int i = 0; i < f.encode().size(); i++)
 			{
-				if((f.encode().get(i) > loc) && (PrimeNumberGenerator.primes.contains(f.encode().get(i))))
+				if((f.encode().get(i) > loc) && (PrimeNumberGenerator.getRealPrimes().contains(f.encode().get(i))))
 				{
 					loc = f.encode().get(i);
 				}
 			}
 			
-			loc = PrimeNumberGenerator.primes.get(PrimeNumberGenerator.primes.indexOf(loc) + 1);
+			loc = PrimeNumberGenerator.getRealPrimes().indexOf(loc+1);
 			
 			
 			ArrayList<Integer> trans = new ArrayList<Integer>();
