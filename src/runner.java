@@ -18,10 +18,10 @@ public class runner
 			logic.beginLoop();
 		}).start(); */
 		
-		formula f = new logicFormula("(A2→A2)");
-		formula g = new logicFormula("((A7→A9)→(A4→A9))");
+		formula g = new logicFormula("(A3→A2)");
+		formula f = new logicFormula("((A7→A9)→(A4→A9))");
 		
-		System.out.println(g.formulaContains(f));
+		System.out.println(arrowRule.modusPonens(g, f).getStringfromFormula());
 	
 	
 	

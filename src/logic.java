@@ -91,6 +91,9 @@ public class logic
 	{
 		formula wff1 = generalization.ruleOfGeneralization(randomSelection());
 			System.out.println(wff1.getStringfromFormula());
+			
+		formula wff2 = arrowRule.modusPonens(randomSelection(), randomSelection());
+			if(wff2 != null) {System.out.println(wff2.getStringfromFormula());}
 	
 	}
 	
