@@ -5,66 +5,41 @@ import java.util.Random;
 public class substitution extends inferenceRule
 {
 	
+	//only works for LOGIC formulas right now
+	
 	 public static formula substitute(logicFormula f)
 	{
+		 int replace = 0;
+		 int curr = 0;
 		 
-		 /*
-		ArrayList<Integer> x = f.encode();
+		//check to see which variable to substitute
+		 
+		while (replace == 0 && curr < f.encode().size())
+		{
+			if(PrimeNumberGenerator.getRealPrimes().contains(f.encode().get(curr) - 1)) {replace = f.encode().get(curr);}
+			curr++;
+		}
 		
-		ListIterator<Integer> itr = x.listIterator();
-        while (itr.hasNext())
-        {
-            int t = (Integer)itr.next();
-            int r = new Random().nextInt(2);
-            
-            if(PrimeNumberGenerator.getRealPrimes().contains(t - 1))
-            {
-            	if(r == 0) {}
-            	else
-            	{
-            		nullFormula s = new nullFormula(logic.randomSelection().getStringfromFormula());
-            		
-            		//need a check to replace all others of same variable
-            		
-            		
-            	}
-            }
-            
-        }
+		formula g = logic.randomSelection();
+		int largestPrime = 0;
 		
-        return null;
-        
-        */
-		 
-		 ArrayList<ArrayList<Integer>> x = new ArrayList<ArrayList<Integer>>();
-		 ArrayList<Integer> y = f.encode();
-		 
-		 for(int i = 0; i < y.size(); i++)
-		 {
-			 ArrayList<Integer> temp = new ArrayList<Integer>();
-			 temp.add(f.encode().get(i));
-			 
-			 x.add(temp);
-		 }
-		 
-		 for(int j = 0; j < y.size(); j++)
-		 {
-			 int r = new Random().nextInt(2);
-			 
-			 if(PrimeNumberGenerator.getRealPrimes().contains(f.encode().get(j) - 1))
-			 {
-				 if(r==0)
-				 {
-					 for(int k = 0; k < y.size(); k++)
-					 {
-						 if(y.get(k) == f.encode().get(j))
-					 }
-				 }
-			 }
-		 }
-		 
+		for(int i = 0; i < g.encode().size(); i++)
+		{
+			if(PrimeNumberGenerator.getRealPrimes().contains(f.encode().get(i) - 1)) {largestPrime = f.encode().get(i);}
+		}
+		
+		ArrayList<Integer> wffT = f.encode();
+		
+		int s = 0;
+		int getIndex = 0;ß
+		
+		while(s < PrimeNumberGenerator.getRealPrimes().size() && getIndex == 0)
+		{
+			if(PrimeNumberGenerator.getRealPrimes().get(s))
+			s++;
+		}
+		
 	
 	}
-	
 	
 }
