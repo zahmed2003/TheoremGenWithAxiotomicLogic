@@ -86,7 +86,7 @@ public class logic
 			return wff;
 	}
 	
-	/** a method that iterates through each inference rule (update later when more rules)*/
+	/** a method that iterates through each inference rule*/
 	public static void iterateThroughRules()
 	{
 		//formula wff1 = generalization.ruleOfGeneralization(randomSelection());
