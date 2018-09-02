@@ -89,11 +89,14 @@ public class logic
 	/** a method that iterates through each inference rule (update later when more rules)*/
 	public static void iterateThroughRules()
 	{
-		formula wff1 = generalization.ruleOfGeneralization(randomSelection());
-			System.out.println(wff1.getStringfromFormula());
+		//formula wff1 = generalization.ruleOfGeneralization(randomSelection());
+			//System.out.println(wff1.getStringfromFormula());
 			
 		formula wff2 = arrowRule.modusPonens(randomSelection(), randomSelection());
 			if(wff2 != null) {System.out.println(wff2.getStringfromFormula());}
+			
+		formula wff3 = substitution.substitute(randomSelection());
+			System.out.println(wff3.getStringfromFormula());
 	
 	}
 	
